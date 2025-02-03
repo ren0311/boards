@@ -1,0 +1,29 @@
+<!-- FILE: memorandum/templates/memorandum/create.html -->
+{% extends 'memorandum/base-layout.html' %}
+
+{% block content %}
+  <div class="main-article">
+    <h1>新しい記事を作成</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="input-form">
+        <div class="input-form-position partition-bottom-line">
+          <span class="input-label-text">{{ form.title.label_tag }}</span>
+          <div class="input-form-title">{{ form.title }}</div>
+        </div>
+        <div class="input-form-tag-group partition-bottom-line">
+          <div class="input-form-position">
+            <span class="input-label-text">{{ form.tags.label_tag }}</span>
+            <div class="input-form-tag">{{ form.tags }}</div>
+          </div>
+          <a class="update-inner-link-text item-normal" href="{% url 'memorandum:create_tag' %}">Add New TAG</a>
+        </div>
+        <div class="input-form-position partition-bottom-line">
+          <span class="input-label-text">{{ form.body.label_tag }}</span>
+          <div class="input-form-body">{{ form.body }}</div>
+        </div>
+      </div>
+      <button type="submit">保存</button>
+    </form>
+  </div>
+{% endblock %}

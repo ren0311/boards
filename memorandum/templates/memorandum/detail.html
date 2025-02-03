@@ -1,0 +1,19 @@
+<!-- FILE: memorandum/templates/memorandum/detail.html -->
+{% extends 'memorandum/base-layout.html' %}
+
+{% block content %}
+  <div class="main-article">
+    <h1 class="article-title">{{ object.title }}</h1>
+    <div class="article-body">{{ object.body }}</div>
+    <div class="article-tags">
+      タグ:
+      {% for tag in object.tags.all %}
+        <span class="article-tag">{{ tag.name }}</span>
+      {% endfor %}
+    </div>
+    <div class="article-date">
+      <span>作成日: {{ object.published_date|date:"Y年m月d日(D)" }}</span>
+      <span>更新日: {{ object.modified_date|date:"Y年m月d日(D)" }}</span>
+    </div>
+  </div>
+{% endblock %}

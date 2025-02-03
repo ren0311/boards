@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link rel="stylesheet" href="{% static 'memorandum/css/memorandum.css' %}">
+    <title>{% block title %}Memo Site{% endblock title %}</title>
+    {% block head %}{% endblock head %}
+  </head>
+
+  <body>
+    <header>
+      <div class="top-title">
+        <a class="home-link-text" href="{% url 'memorandum:index' %}">備忘録登録サイト</a>
+      </div>
+      {% block header %}
+      {% endblock header %}
+    </header>
+    <div class="main-content">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
+</html>

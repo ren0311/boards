@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+memorandum | Home
+{% endblock %}
+{% block content %}
+
+
+<div class='container'>
+    <div class='content'>
+        <h1>memorandum top</h1>
+    </div>
+</div>
+<div class="local-nav">
+    <ul class="local-nav-list">
+      <li class="local-nav-item"><a class="local-nav-link-text item-normal" href="{% url 'memorandum:create' %}">新規記事</a></li>
+      <li class="local-nav-item"><a class="local-nav-link-text item-normal" href="{% url 'memorandum:create_tag' %}">新規TAG</a></li>
+    </ul>
+  </div>
+  <ul class="article-list">
+    {% for item in object_list %}
+      <li class="article-list-item">
+        <a class="link-text" href="{% url 'memorandum:detail' item.pk %}">{{ item.title }}</a>
+        <div class="article-date">作成日: {{ item.published_date|date:"Y年m月d日(D)" }}<br>更新日: {{ item.modified_date|date:"Y年m月d日(D)" }}</div>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
