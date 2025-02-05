@@ -6,6 +6,7 @@ from django.views.generic import CreateView, DetailView
 from .models import Article
 from .forms import ArticleForm  # type: ignore
 from .models import Tag, Article
+from .forms import TagForm
 
 
 class ArticleListView(generic.ListView):

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ArticleCreateView, ArticleDetailView
+from .views import ArticleCreateView, ArticleDetailView, TagCreateView
 from . import views
 
 app_name = "memorandum"
@@ -13,4 +13,5 @@ urlpatterns = [
     path("tag/create/", views.TagCreateView.as_view(), name="create_tag"),
     path("create/", ArticleCreateView.as_view(), name="create"),
     path("article/<int:pk>/", ArticleDetailView.as_view(), name="detail"),
+    path("tag/create/", TagCreateView.as_view(), name="create_tag"),
 ]

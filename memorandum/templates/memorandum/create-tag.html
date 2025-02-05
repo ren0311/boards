@@ -1,6 +1,12 @@
 {% extends 'memorandum/base-layout.html' %}
 
 {% block content %}
+<h1>新しいタグを作成</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">保存</button>
+  </form>
   <div class="main-article">
     <form method="post">{% csrf_token %}
         <div class="input-form">
@@ -13,15 +19,13 @@
               <span class="input-label-text">{{ form.tag.label_tag }}</span>
               <div class="input-form-tag">{{ form.tag }}</div>
             </div>
-            <a class="update-inner-link-text item-normal" href="{% url 'memorandum:create_tag' %}">Add New TAG</a>
+            
           </div>
           <div class="input-form-position partition-bottom-line">
             <span class="input-label-text">{{ form.body.label_tag }}</span>
             <div class="input-form-body">{{ form.body }}</div>
           </div>
         </div>
-        <!-- {{ form.as_p }} -->
-        <input class="button-common" type="submit" value="Save">
     </form>
   </div>
 {% endblock content %}
